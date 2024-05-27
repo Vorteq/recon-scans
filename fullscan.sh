@@ -7,9 +7,9 @@ echo -e "echo: \n$@"
 IFS=","
 # Get the directory of the script
 script_dir=$(dirname $0)
-# Create the scans_full_scan directory inside the script directory
-if [ ! -d "$script_dir/scans_full_scan" ]; then
-  mkdir "$script_dir/scans_full_scan"
+# Create the results directory inside the script directory
+if [ ! -d "$script_dir/results" ]; then
+  mkdir "$script_dir/results"
   echo "Scan folder made"
 fi
 #Scans the target
@@ -19,8 +19,8 @@ echo "For loop over command output:"
 timestamp=$(date +"%d-%m-%Y_%H:%M:%S")
 
 # Create a new directory for this scan
-mkdir -p "$script_dir/scans_full_scan/$timestamp"
-cd "$script_dir/scans_full_scan/$timestamp"
+mkdir -p "$script_dir/results/$timestamp"
+cd "$script_dir/results/$timestamp"
 
 # Initialize an empty JSON array
 echo "[]" > scan_results.json
