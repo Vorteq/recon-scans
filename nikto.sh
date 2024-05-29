@@ -38,6 +38,8 @@ do
   # Wait for all background processes to finish
   wait
 
+  cd ../../../
+
   # Parse the output of each program and convert it to JSON
   nikto_json=$(cat $item/nikto/non-ssl/$item.txt $item/nikto/ssl/$item.txt | sed 's/\\//g' | jq -R -s -c 'split("\n")')
 
